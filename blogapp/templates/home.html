@@ -19,13 +19,22 @@
             .blog{
                 margin: 30px;
             }
-            
+            .page-ul {
+                display:inline-block;
+            }
+            .page-ul .page-li {
+                list-style: none;
+                float: left;
+            }
+            .page-li {
+                padding: 5px;
+            }
         </style>
     </head>
     
     <body>
         <div class = "blog">
-            {% for blog in blogs %}
+            {% for blog in posts %}
             <h2>{{blog.title}}</h2>
             {%if blog.photo %}
             <img src="{{blog.photo.url}}" height="100"><br>
@@ -35,6 +44,21 @@
 
             <hr>
         {% endfor %}
+        </div>
+        <div>
+            <ul class="page-ul">
+                {% if posts.has_previous %}
+                <li class="page-li"><a href="?page=1">처음</a></li>
+                <li class="page-li"><a href="?page={{posts.previous_page_number}}">이전</a></li>
+                {% endif %}
+
+                <li class="page-li"><span>{{posts.number}} / {{posts.paginator.num_pages}}</span></li>
+
+                {% if posts.has_next %}
+                <li class="page-li"><a href="?page={{posts.next_page_number}}">다음</a></li>
+                <li class="page-li"><a href="?page={{posts.paginator.num_pages}}">끝</a></li>
+                {% endif %}
+            </ul>
         </div>
     </body>
 </html>
