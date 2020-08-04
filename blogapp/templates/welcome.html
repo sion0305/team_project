@@ -10,17 +10,20 @@
             @font-face { font-family: 'GmarketSansMedium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff'); font-weight: normal; font-style: normal; }
             .body{
                 background-color: lightskyblue;
+                opacity: 0.9;
                 margin:40px;
                 border-radius: 10px;
                 padding : 20px;
+                text-align: center;
             }
             h1{
                 font-family: GmarketSansMedium;
             }
             span{
                 text-decoration: underline;
-                color:orangered;
+                color:white;
                 font-weight: bold;
+                word-spacing: 0.4rem;
             }
         </style>
     </head>
@@ -28,7 +31,7 @@
     <body>
         <div class="body">
             <h1>영화 추천 블로그</h1>
-            <a href="{% url 'home' %}"><span>!영화 추천 받으러 가기!</span></a><br>
+            <a href="{% url 'home' %}" class="btn btn-lg btn-secondary"><span>!영화 추천 받으러 가기!</span></a><br>
         </div>
     </body>
     
