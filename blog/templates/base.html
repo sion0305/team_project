@@ -19,9 +19,24 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'newblog' %}">Write</a>
             </li>
+
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="#">로그인</a>
+              <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user.username}} 님이 로그인 중</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+            </li>
+
+            {% endif %}
             
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">LikeLion</a>
